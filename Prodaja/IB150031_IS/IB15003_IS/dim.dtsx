@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/16/2020 12:04:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-QJCJ04Q"
+  DTS:CreatorName="DESKTOP-QJCJ04Q\Home"
+  DTS:DTSID="{7432C242-D834-43BD-86D9-F52159E82257}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="dim"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{7C55D45C-2623-423D-826B-77BEBA4A15BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.prodaja]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DA322474-2153-4C1A-BC31-5807FEF1E3A3}"
+      DTS:ObjectName="LocalHost.prodaja">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=prodaja;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.prodaja 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{79B8BB80-7456-45E7-8294-2E59597C3EAB}"
+      DTS:ObjectName="LocalHost.prodaja 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=prodaja;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.prodaja_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{862F0CED-BDCD-4B0F-AABA-0508C3689DF6}"
+      DTS:ObjectName="LocalHost.prodaja_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=prodaja_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9E9612D9-3398-4D64-A728-ACA3D915E285}"
+      DTS:ObjectName="LocalHost.prodaja_DW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=prodaja_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E3E722C2-D0FF-4100-8E23-3A5592669E3F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DimNarudzba"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimNarudzba"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_narudzba]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimNarudzba.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[narudzbaID]"
+                      cachedDataType="i4"
+                      cachedName="narudzbaID"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[narudzbaID]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[narudzbaID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[kupac_naziv]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="kupac_naziv"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_naziv]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_naziv]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[kupac_grad]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="kupac_grad"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_grad]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_grad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[kupac_drzava]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="kupac_drzava"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_drzava]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_drzava]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[god_narudzb]"
+                      cachedDataType="i4"
+                      cachedName="god_narudzb"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[god_narudzb]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[god_narudzb]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[ispor_naziv]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ispor_naziv"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[ispor_naziv]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[ispor_naziv]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].Columns[cijena_dostave]"
+                      cachedDataType="cy"
+                      cachedName="cijena_dostave"
+                      externalMetadataColumnId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[cijena_dostave]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[cijena_dostave]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[narudzbaKey]"
+                      dataType="i4"
+                      name="narudzbaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[narudzbaID]"
+                      dataType="i4"
+                      name="narudzbaID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="kupac_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_grad]"
+                      dataType="wstr"
+                      length="15"
+                      name="kupac_grad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[kupac_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      name="kupac_drzava" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[god_narudzb]"
+                      dataType="i4"
+                      name="god_narudzb" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[ispor_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="ispor_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input].ExternalColumns[cijena_dostave]"
+                      dataType="cy"
+                      name="cijena_dostave" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimNarudzba.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimNarudzba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimNarudzba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimNarudzba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DimPopust"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimPopust"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_popust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimPopust.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].Columns[popustID]"
+                      cachedDataType="i4"
+                      cachedName="popustID"
+                      externalMetadataColumnId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].ExternalColumns[popustID]"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[popustID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].Columns[vr_popusta]"
+                      cachedDataType="r4"
+                      cachedName="vr_popusta"
+                      externalMetadataColumnId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].ExternalColumns[vr_popusta]"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[vr_popusta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].ExternalColumns[popustKey]"
+                      dataType="i4"
+                      name="popustKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].ExternalColumns[popustID]"
+                      dataType="i4"
+                      name="popustID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input].ExternalColumns[vr_popusta]"
+                      dataType="r4"
+                      name="vr_popusta" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimPopust.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimPopust.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimPopust.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimPopust.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimPopust.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DimProizvod"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimProizvod"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_proizvod]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimProizvod.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja_DW 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[proizvodID]"
+                      cachedDataType="i4"
+                      cachedName="proizvodID"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[proizvodID]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proizvodID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[kateg_naziv]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="kateg_naziv"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[kateg_naziv]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[kateg_naziv]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[proiz_naziv]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="proiz_naziv"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[proiz_naziv]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proiz_naziv]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[dobav_naziv]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="dobav_naziv"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobav_naziv]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_naziv]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[dobav_drzava]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="dobav_drzava"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobav_drzava]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_drzava]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].Columns[dobav_grad]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="dobav_grad"
+                      externalMetadataColumnId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobar_grad]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_grad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[proizvodKey]"
+                      dataType="i4"
+                      name="proizvodKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[proizvodID]"
+                      dataType="i4"
+                      name="proizvodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[kateg_naziv]"
+                      dataType="wstr"
+                      length="15"
+                      name="kateg_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[proiz_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="proiz_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobav_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="dobav_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobar_grad]"
+                      dataType="wstr"
+                      length="15"
+                      name="dobar_grad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input].ExternalColumns[dobav_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      name="dobav_drzava" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimProizvod.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimProizvod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimProizvod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimProizvod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Narudzba"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Narudzba"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT dbo.narudzba.narudzbaID, dbo.kupac.kupac_naziv, dbo.kupac.kupac_grad, dbo.kupac.kupac_drzava, dbo.narudzba.god_narudzb, dbo.isporucitelj.ispor_naziv, dbo.narudzba.cijena_dostave
+FROM     dbo.isporucitelj, dbo.narudzba, dbo.kupac
+WHERE  dbo.isporucitelj.isporuciteljID = dbo.narudzba.isporuciteljID AND dbo.narudzba.kupacID = dbo.kupac.kupacID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Narudzba.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[narudzbaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[narudzbaID]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[narudzbaID]"
+                      name="narudzbaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_naziv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_naziv]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_naziv]"
+                      name="kupac_naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_grad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_grad]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_grad]"
+                      name="kupac_grad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_drzava]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_drzava]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[kupac_drzava]"
+                      name="kupac_drzava"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[god_narudzb]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[god_narudzb]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[god_narudzb]"
+                      name="god_narudzb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[ispor_naziv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[ispor_naziv]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[ispor_naziv]"
+                      name="ispor_naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[cijena_dostave]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[cijena_dostave]"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].Columns[cijena_dostave]"
+                      name="cijena_dostave"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[narudzbaID]"
+                      dataType="i4"
+                      name="narudzbaID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="kupac_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_grad]"
+                      dataType="wstr"
+                      length="15"
+                      name="kupac_grad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[kupac_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      name="kupac_drzava" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[god_narudzb]"
+                      dataType="i4"
+                      name="god_narudzb" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[ispor_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="ispor_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output].ExternalColumns[cijena_dostave]"
+                      dataType="cy"
+                      name="cijena_dostave" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[narudzbaID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[narudzbaID]"
+                      name="narudzbaID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_naziv]"
+                      name="kupac_naziv" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_grad]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_grad]"
+                      name="kupac_grad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[kupac_drzava]"
+                      name="kupac_drzava" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[god_narudzb]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[god_narudzb]"
+                      name="god_narudzb" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ispor_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ispor_naziv]"
+                      name="ispor_naziv" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[cijena_dostave]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[cijena_dostave]"
+                      name="cijena_dostave" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Popust"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Popust"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[popust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Popust.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[popustID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].ExternalColumns[popustID]"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[popustID]"
+                      name="popustID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[vr_popusta]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].ExternalColumns[vr_popusta]"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].Columns[vr_popusta]"
+                      name="vr_popusta"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].ExternalColumns[popustID]"
+                      dataType="i4"
+                      name="popustID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output].ExternalColumns[vr_popusta]"
+                      dataType="r4"
+                      name="vr_popusta" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[popustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[popustID]"
+                      name="popustID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[vr_popusta]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[vr_popusta]"
+                      name="vr_popusta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Prozivod"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Prozivod"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT dbo.proizvod.proizvodID, dbo.proiz_kat.kateg_naziv, dbo.proizvod.proiz_naziv, dbo.dobavljac.dobav_naziv, dbo.dobavljac.dobav_grad, dbo.dobavljac.dobav_drzava
+FROM     dbo.dobavljac, dbo.proizvod, dbo.proiz_kat
+WHERE  dbo.dobavljac.dobavljacID = dbo.proizvod.dobavljacID AND dbo.proizvod.kategorijaID = dbo.proiz_kat.kategorijaID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Prozivod.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.prodaja 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proizvodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[proizvodID]"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proizvodID]"
+                      name="proizvodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[kateg_naziv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[kateg_naziv]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[kateg_naziv]"
+                      name="kateg_naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proiz_naziv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[proiz_naziv]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[proiz_naziv]"
+                      name="proiz_naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_naziv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_naziv]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_naziv]"
+                      name="dobav_naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_grad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_grad]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_grad]"
+                      name="dobav_grad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_drzava]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_drzava]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].Columns[dobav_drzava]"
+                      name="dobav_drzava"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[proizvodID]"
+                      dataType="i4"
+                      name="proizvodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[kateg_naziv]"
+                      dataType="wstr"
+                      length="15"
+                      name="kateg_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[proiz_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="proiz_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      name="dobav_naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_grad]"
+                      dataType="wstr"
+                      length="15"
+                      name="dobav_grad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output].ExternalColumns[dobav_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      name="dobav_drzava" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[proizvodID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[proizvodID]"
+                      name="proizvodID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[kateg_naziv]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[kateg_naziv]"
+                      name="kateg_naziv" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[proiz_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[proiz_naziv]"
+                      name="proiz_naziv" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_naziv]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_naziv]"
+                      name="dobav_naziv" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_grad]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_grad]"
+                      name="dobav_grad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_drzava]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[dobav_drzava]"
+                      name="dobav_drzava" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\DimNarudzba.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Narudzba.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\DimPopust.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Popust.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+              endId="Package\Data Flow Task\DimProizvod.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Prozivod.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task\Prozivod"
+          TopLeft="251.428575710375,41.6000005834243" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Data Flow Task\DimProizvod"
+          TopLeft="238.857146924856,136.423531325053" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Data Flow Task\Popust"
+          TopLeft="435.857150262716,40.3764711545001" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Data Flow Task\DimNarudzba"
+          TopLeft="50.8571437232349,132.141178323818" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Data Flow Task\Narudzba"
+          TopLeft="61.1428581841138,40.9882358689622" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Data Flow Task\DimPopust"
+          TopLeft="421.142864314878,135.200001896129" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="308.942861317615,83.2000005834243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.2235307416289"
+              Start="0,0"
+              End="0,45.7235307416289">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7235307416289" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="488.250007288797,82.3764711545001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.8235307416289"
+              Start="0,0"
+              End="0,45.3235307416289">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3235307416289" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="122.500000953674,82.9882358689622">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.1529424548558"
+              Start="0,0"
+              End="0,41.6529424548558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.6529424548558" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Prozivod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimProizvod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Popust">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimNarudzba">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Narudzba">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimPopust">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

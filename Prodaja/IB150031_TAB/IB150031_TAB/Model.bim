@@ -1,0 +1,387 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "bs-Latn-BA",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost prodaja_DW",
+        "connectionString": "Provider=SQLNCLI11;Data Source=.;Initial Catalog=prodaja_DW;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "dim_narudzba",
+        "columns": [
+          {
+            "name": "narudzbaKey",
+            "dataType": "int64",
+            "sourceColumn": "narudzbaKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "narudzbaID",
+            "dataType": "int64",
+            "sourceColumn": "narudzbaID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "kupac_naziv",
+            "dataType": "string",
+            "sourceColumn": "kupac_naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "kupac_grad",
+            "dataType": "string",
+            "sourceColumn": "kupac_grad",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "kupac_drzava",
+            "dataType": "string",
+            "sourceColumn": "kupac_drzava",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "god_narudzb",
+            "dataType": "int64",
+            "sourceColumn": "god_narudzb",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ispor_naziv",
+            "dataType": "string",
+            "sourceColumn": "ispor_naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "cijena_dostave",
+            "dataType": "decimal",
+            "sourceColumn": "cijena_dostave",
+            "formatString": "#,0.00 \"KM\";-#,0.00 \"KM\";#,0.00 \"KM\"",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"5146\" DisplayName=\"KM Bosnian (Latin, Bosnia and Herzegovina)\" Symbol=\"KM\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_narudzba",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dim_narudzba].* FROM [dbo].[dim_narudzba] ",
+              "dataSource": "SqlServer localhost prodaja_DW"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "uk_cijena_dostave",
+            "expression": "SUM(dim_narudzba[cijena_dostave])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dim_narudzba].* FROM [dbo].[dim_narudzba] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_narudzba"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_popust",
+        "columns": [
+          {
+            "name": "popustKey",
+            "dataType": "int64",
+            "sourceColumn": "popustKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "popustID",
+            "dataType": "int64",
+            "sourceColumn": "popustID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "vr_popusta",
+            "dataType": "double",
+            "sourceColumn": "vr_popusta",
+            "sourceProviderType": "Single"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_popust",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dim_popust].* FROM [dbo].[dim_popust] ",
+              "dataSource": "SqlServer localhost prodaja_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dim_popust].* FROM [dbo].[dim_popust] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_popust"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_proizvod",
+        "columns": [
+          {
+            "name": "proizvodKey",
+            "dataType": "int64",
+            "sourceColumn": "proizvodKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "proizvodID",
+            "dataType": "int64",
+            "sourceColumn": "proizvodID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "kateg_naziv",
+            "dataType": "string",
+            "sourceColumn": "kateg_naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "proiz_naziv",
+            "dataType": "string",
+            "sourceColumn": "proiz_naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "dobav_naziv",
+            "dataType": "string",
+            "sourceColumn": "dobav_naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "dobar_grad",
+            "dataType": "string",
+            "sourceColumn": "dobar_grad",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "dobav_drzava",
+            "dataType": "string",
+            "sourceColumn": "dobav_drzava",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_proizvod",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dim_proizvod].* FROM [dbo].[dim_proizvod] ",
+              "dataSource": "SqlServer localhost prodaja_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dim_proizvod].* FROM [dbo].[dim_proizvod] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_proizvod"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "fact_nar_pr",
+        "columns": [
+          {
+            "name": "narudzbaKey",
+            "dataType": "int64",
+            "sourceColumn": "narudzbaKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "popustKey",
+            "dataType": "int64",
+            "sourceColumn": "popustKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "proizvodKey",
+            "dataType": "int64",
+            "sourceColumn": "proizvodKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "proiz_cijena",
+            "dataType": "decimal",
+            "sourceColumn": "proiz_cijena",
+            "formatString": "#,0.00 \"KM\";-#,0.00 \"KM\";#,0.00 \"KM\"",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"5146\" DisplayName=\"KM Bosnian (Latin, Bosnia and Herzegovina)\" Symbol=\"KM\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "kolicina",
+            "dataType": "int64",
+            "sourceColumn": "kolicina",
+            "sourceProviderType": "SmallInt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_nar_pr",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[fact_nar_pr].* FROM [dbo].[fact_nar_pr] ",
+              "dataSource": "SqlServer localhost prodaja_DW"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "ukup_cijena",
+            "expression": "SUM(fact_nar_pr[proiz_cijena])",
+            "kpi": {
+              "targetExpression": "2500",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='fact_nar_pr'[ukup_cijena] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<375,-1,",
+                "\t                If(x<2250,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "375"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "2250"
+                }
+              ]
+            }
+          },
+          {
+            "name": "ukup_kol",
+            "expression": "SUM(fact_nar_pr[kolicina])"
+          },
+          {
+            "name": "br_narudzb",
+            "expression": "COUNT(fact_nar_pr[narudzbaKey])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[fact_nar_pr].* FROM [dbo].[fact_nar_pr] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "fact_nar_pr"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "819c7d76-259f-441e-9798-cc8342db6860",
+        "fromTable": "fact_nar_pr",
+        "fromColumn": "narudzbaKey",
+        "toTable": "dim_narudzba",
+        "toColumn": "narudzbaKey"
+      },
+      {
+        "name": "afd1be3b-bc66-459f-aae0-36ca5691a1d1",
+        "fromTable": "fact_nar_pr",
+        "fromColumn": "popustKey",
+        "toTable": "dim_popust",
+        "toColumn": "popustKey"
+      },
+      {
+        "name": "f7753a20-9da6-4472-976d-78d9348f8765",
+        "fromTable": "fact_nar_pr",
+        "fromColumn": "proizvodKey",
+        "toTable": "dim_proizvod",
+        "toColumn": "proizvodKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

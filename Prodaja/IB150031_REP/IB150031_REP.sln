@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "IB150031_REP", "IB150031_REP\IB150031_REP.rptproj", "{5574CFEC-852F-4A22-A12C-F1F060A843CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Debug|Default.ActiveCfg = Debug
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Debug|Default.Build.0 = Debug
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Debug|Default.Deploy.0 = Debug
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.DebugLocal|Default.Build.0 = DebugLocal
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Release|Default.ActiveCfg = Release
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Release|Default.Build.0 = Release
+		{5574CFEC-852F-4A22-A12C-F1F060A843CE}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18C5CD46-3EB0-4AED-ACF8-FCB06101647A}
+	EndGlobalSection
+EndGlobal
