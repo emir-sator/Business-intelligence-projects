@@ -1,1 +1,1 @@
-# Business-intelligence-projects
+SQL, SSIS, SSAS, SSRS Excel, PowerBI, ETL
